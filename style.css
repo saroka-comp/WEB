@@ -1,0 +1,180 @@
+/* Importar fuentes de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    /* Fondo degradado suave */
+    background: linear-gradient(135deg, #74a0e9 0%, #a4def2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+    font-family: 'Roboto', sans-serif; /* Fuente más legible para el cuerpo */
+    text-align: center; /* Centrado horizontal inicial para contenido que no es flex */
+    line-height: 1.6;
+    overflow: hidden; /* Evita barras de desplazamiento si hay animaciones que se desbordan */
+}
+
+/* Contenedor principal del contenido (ahora será flex) */
+.container {
+    background-color: #ffffff;
+    padding: 40px; /* Reduje un poco el padding general */
+    border-radius: 15px; /* Bordes más redondeados */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada y suave */
+    max-width: 900px; /* Aumenté el ancho máximo para acomodar el diseño de dos columnas */
+    width: 95%; /* Un poco más ancho en pantallas grandes */
+    display: flex; /* Habilitamos Flexbox para los hijos directos */
+    flex-direction: row; /* Los elementos se colocarán en fila (imagen a la izquierda, texto a la derecha) */
+    align-items: center; /* Alinea verticalmente los elementos hijos al centro */
+    justify-content: space-between; /* Espacia los elementos hijos (texto a la izquierda, imagen a la derecha con espacio entre ellos) */
+    position: relative;
+    z-index: 1; /* Asegura que esté por encima de elementos de fondo */
+    animation: fadeInScale 1s ease-out forwards; /* Animación de entrada */
+}
+
+/* Animación de entrada para el contenedor */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Contenedor para el texto */
+.content-wrapper {
+    text-align: left; /* Alinea el texto a la izquierda dentro de este contenedor */
+    flex: 1; /* Permite que este contenedor ocupe el espacio disponible */
+    padding-right: 30px; /* Espacio entre el texto y la imagen */
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif; /* Fuente más moderna para el título */
+    font-size: 3em; /* Reduje un poco el tamaño del título */
+    color: #2c3e50; /* Gris oscuro para el contraste */
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05); /* Sombra de texto sutil */
+}
+
+h1 strong {
+    color: #4a90e2; /* Un azul corporativo para Saroka */
+    font-weight: 700; /* Más audaz */
+}
+
+p {
+    font-size: 1.1em; /* Reduje un poco el tamaño del párrafo */
+    color: #555;
+    margin-bottom: 20px;
+    max-width: none; /* El ancho ya está controlado por el contenedor */
+}
+
+.social-links {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.social-links a {
+    display: inline-block;
+    margin-right: 10px; /* Espacio entre los botones sociales */
+    padding: 10px 22px; /* Ajusté el padding de los botones */
+    background-color: #4a90e2;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px; /* Bordes muy redondeados (píldora) */
+    font-weight: 600; /* Un poco más audaz */
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Añadir transform para hover */
+}
+
+.social-links a:hover {
+    background-color: #357bd8;
+    transform: translateY(-3px); /* Efecto sutil de elevación */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra al pasar el ratón */
+}
+
+.contact {
+    margin-top: 30px;
+    font-size: 0.9em; /* Reduje un poco el tamaño del texto de contacto */
+    color: #777;
+    font-weight: 300; /* Fuente más ligera para el contacto */
+}
+
+/* Estilos para el correo electrónico */
+.contact a {
+    color: #4a90e2;
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.contact a:hover {
+    color: #357bd8;
+    text-decoration: underline;
+}
+
+/* Estilos para el contenedor de la imagen */
+.image-container {
+    flex: 1; /* Permite que este contenedor ocupe el espacio disponible */
+    max-width: 45%; /* Establece un ancho máximo para la imagen (ajusta este valor según necesites) */
+    margin-left: 30px; /* Espacio entre la imagen y el texto */
+    border-radius: 10px; /* Bordes redondeados para la imagen también */
+    overflow: hidden; /* Asegura que la imagen respete el border-radius */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil para la imagen */
+    text-align: right; /* Alinea la imagen a la derecha dentro de su contenedor (útil si la imagen no ocupa todo el ancho) */
+}
+
+.hero-image {
+    width: 100%; /* La imagen ocupará el 100% del ancho de su contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    display: block; /* Elimina el espacio extra debajo de la imagen */
+    object-fit: contain; /* Asegura que toda la imagen sea visible dentro de su contenedor, manteniendo la proporción */
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* En pantallas pequeñas, volvemos a una columna */
+        align-items: center; /* Centramos los elementos verticalmente */
+        text-align: center; /* Centramos el texto */
+        padding: 30px;
+    }
+    .content-wrapper {
+        text-align: center;
+        padding-right: 0;
+        margin-bottom: 20px; /* Espacio entre el texto y la imagen en diseño de columna */
+    }
+    .image-container {
+        max-width: 70%; /* La imagen ocupa más ancho en diseño de columna */
+        margin-left: 0;
+        text-align: center;
+    }
+    h1 {
+        font-size: 2.5em;
+    }
+    p {
+        font-size: 1em;
+    }
+    .social-links a {
+        margin: 0 8px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+    .image-container {
+        max-width: 90%;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    p {
+        font-size: 0.9em;
+    }
+}
